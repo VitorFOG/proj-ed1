@@ -1,0 +1,24 @@
+# Compiled output
+*.o
+*.out
+*.exe
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*~
+*.suo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Project documentation
+README.md
+
+# Data files
+data.txt
+
+# Executable
+moviemanager 
