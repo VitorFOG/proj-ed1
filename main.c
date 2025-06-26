@@ -5,7 +5,6 @@
 #define HISTORY_SIZE 5
 #define FILENAME "data.txt"
 
-// Struct for a movie or series
 typedef struct Title {
     char name[100];
     char status[20]; // "Para Assistir", "Assistido", "Abandonado"
