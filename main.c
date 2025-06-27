@@ -51,7 +51,6 @@ int historyCount = 0;
 QueueNode* front = NULL;
 QueueNode* rear = NULL;
 
-// Function prototypes
 void addTitle();
 void moveTitle();
 void viewLists();
@@ -133,7 +132,7 @@ int main() {
 void addTitle() {
     Title newTitle;
     printf("Digite o nome do título: ");
-    while (getchar() != '\n'); // Clear the input buffer
+    while (getchar() != '\n');
     scanf("%[^\n]", newTitle.name);
     strcpy(newTitle.status, "Para Assistir");
 
@@ -157,7 +156,7 @@ void moveTitle() {
     char name[100];
     int choice;
     printf("Digite o nome do título para mover: ");
-    while (getchar() != '\n'); // Clear the input buffer
+    while (getchar() != '\n');
     scanf("%[^\n]", name);
 
     TreeNode* bstNode = searchTreeNode(root, name);
@@ -221,7 +220,7 @@ void viewLists() {
 void searchTitle() {
     char name[100];
     printf("Digite o nome do título para buscar: ");
-    while (getchar() != '\n'); // Clear the input buffer
+    while (getchar() != '\n');
     scanf("%[^\n]", name);
 
     TreeNode* foundNode = searchTreeNode(root, name);
@@ -239,7 +238,7 @@ void viewHistory() {
 void addToWatchNext() {
     char name[100];
     printf("Digite o nome do título para adicionar à fila 'Assistir a Seguir': ");
-    while (getchar() != '\n'); // Clear the input buffer
+    while (getchar() != '\n');
     scanf("%[^\n]", name);
 
     TreeNode* bstNode = searchTreeNode(root, name);
@@ -356,7 +355,7 @@ TreeNode* deleteTreeNode(TreeNode* node, const char* name) {
     } else if (strcmp(name, node->data.name) > 0) {
         node->right = deleteTreeNode(node->right, name);
     } else {
-        // Node with only one child or no child
+        // Nó com apenas um filho ou nenhum filho
         if (node->left == NULL) {
             TreeNode* temp = node->right;
             free(node);
@@ -367,13 +366,13 @@ TreeNode* deleteTreeNode(TreeNode* node, const char* name) {
             return temp;
         }
 
-        // Node with two children: Get the inorder successor (smallest in the right subtree)
+        // Nó com dois filhos: Pega o sucessor em ordem (o menor na subárvore direita)
         TreeNode* temp = findMin(node->right);
 
-        // Copy the inorder successor's content to this node
+        // Copia o conteúdo do sucessor em ordem para este nó
         node->data = temp->data;
 
-        // Delete the inorder successor
+        // Deleta o sucessor em ordem
         node->right = deleteTreeNode(node->right, temp->data.name);
     }
     return node;
